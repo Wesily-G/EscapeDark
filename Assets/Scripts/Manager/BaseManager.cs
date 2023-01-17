@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseManager<T> : MonoBehaviour where T:MonoBehaviour
 {
     public static T instance;
-    public T GetInstance()
+    public static T GetInstance()
     {
         return instance;
     }
