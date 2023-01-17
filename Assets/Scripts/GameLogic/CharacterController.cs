@@ -15,7 +15,6 @@ public class CharacterController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
         Movent();
 
 
