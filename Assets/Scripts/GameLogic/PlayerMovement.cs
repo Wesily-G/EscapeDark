@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class CharacterController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rig;
     public float speed = 5;
@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
         //Debug.Log(ver);
-        rig.velocity = new Vector3(hor,0, ver) * Time.deltaTime * speed;
+        rig.velocity = new Vector3(hor,0, -ver) * Time.deltaTime * speed;
     }
 
 }
