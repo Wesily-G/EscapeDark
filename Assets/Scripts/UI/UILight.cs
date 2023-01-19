@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-public class UISam : MonoBehaviour
+using UnityEngine.Events;
+public class UILight : MonoBehaviour
 {
     public UnityAction onSam = delegate { };
     public UnityAction offSam = delegate { };
@@ -22,8 +22,8 @@ public class UISam : MonoBehaviour
     }
     private void Start()
     {
-        onSam += () =>SamStartReduce();
-        offSam += () =>SamStopReduce();
+        onSam += () => SamStartReduce();
+        offSam += () => SamStopReduce();
     }
 
     void SamStartReduce()
