@@ -7,6 +7,12 @@ public class DoorController : InterBase
 {
     [SerializeField]
     float rotatingTime =15f;
+    UnityAction DoorOpen;
+    private void Start()
+    {
+        //float moveRotationAngle = 90;
+        //Rotating(moveRotationAngle);;
+    }
     private void OnTriggerEnter(Collider other)
     {
         //旋转角度
@@ -18,11 +24,6 @@ public class DoorController : InterBase
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        float moveRotationAngle = 0;
-        Rotating(moveRotationAngle);
-    }
     void Rotating(float RotationAngle)
     {
         Quaternion moveRotation = Quaternion.AngleAxis(RotationAngle, Vector3.up);

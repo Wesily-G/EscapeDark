@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6467775074315810548}
   - component: {fileID: 923417486194362693}
   - component: {fileID: 4896654998434270224}
+  - component: {fileID: 4515321218003008532}
   m_Layer: 0
   m_Name: Indoor
   m_TagString: Untagged
@@ -131,6 +132,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7400002, y: 5.37, z: 0.2}
   m_Center: {x: 1.3699982, y: 2.685, z: 0}
+--- !u!65 &4515321218003008532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176133445916785523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7400002, y: 5.37, z: 0.1}
+  m_Center: {x: 1.369998, y: 2.685, z: 0}
 --- !u!1 &6597600120881111958
 GameObject:
   m_ObjectHideFlags: 0
