@@ -5,15 +5,18 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class UISam : MonoBehaviour
 {
-    public UnityAction onSam = delegate { };
-    public UnityAction offSam = delegate { };
+    public static UnityAction onSam = delegate { };
+    public static UnityAction offSam = delegate { };
+    public static UnityAction addSam = delegate { };
 
     [SerializeField]
     double MaxSam = 100f;
     [SerializeField]
-    double currentSam;
+    static double currentSam;
     [SerializeField]
     double SamReducenum = 1f;
+    [SerializeField]
+    int addsam = 15;
     Image SamSlider;
     private void Awake()
     {
@@ -24,12 +27,13 @@ public class UISam : MonoBehaviour
     {
         onSam += () =>SamStartReduce();
         offSam += () =>SamStopReduce();
+        addSam += () => AddSam();
     }
 
     void SamStartReduce()
     {
         StartCoroutine(SamReduce(SamReducenum));
-        SamSlider.fillAmount = (float)(MaxSam / currentSam);
+        UpdateSam();
     }
 
     void SamStopReduce()
@@ -40,5 +44,16 @@ public class UISam : MonoBehaviour
     {
         currentSam -= Time.deltaTime / 3000 * reducenum;
         yield return null;
+    }
+
+    void UpdateSam()
+    {
+        SamSlider.fillAmount = (float)(MaxSam / currentSam);
+    }
+
+    void AddSam()
+    {
+        currentSam += addsam;
+        UpdateSam();
     }
 }
