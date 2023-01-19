@@ -53,8 +53,8 @@ public class Patrol : Action
         //Debug.Log("indx:"+Indx);
         //Debug.Log("direction:"+ direction);
         //Debug.Log("pointname:"+point.gameObject.name);
-        transform.forward = Vector3.Lerp(transform.forward,point.position-transform.position,0.5f).normalized;//¸Ä±ä·½Ïò
-        transform.position = Vector3.MoveTowards(transform.position,point.position,speed.Value*Time.deltaTime);//ÒÆ¶¯
+        transform.forward = Vector3.Lerp(transform.forward,point.position-transform.position,0.5f).normalized;//ï¿½Ä±ä·½ï¿½ï¿½
+        transform.position = Vector3.MoveTowards(transform.position,point.position,speed.Value*Time.deltaTime);//ï¿½Æ¶ï¿½
         if(transform.position==point.position)
         {
             if (Indx >= points.Count() - 1)
@@ -67,12 +67,12 @@ public class Patrol : Action
                 direction = false;
             }
                 
-            if(!direction)//ÕýÏò
+            if(!direction)//ï¿½ï¿½ï¿½ï¿½
             { 
                 point = points[++Indx];
             }
                 
-            else//·´Ïò
+            else//ï¿½ï¿½ï¿½ï¿½
             {
                 point = points[--Indx];
             } 
