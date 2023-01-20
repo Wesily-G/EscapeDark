@@ -5,6 +5,15 @@ namespace FogOfWar
 {
     public class FowManager : MonoBehaviour
     {
+        public float FogSizeX = 10;
+        public float FogSizeY = 10;
+        public float MapTileSize = 1;
+        public FOWMap map;
+        public List<FowViewer> viewerList;
+        public List<int[]> viewerPos;
+        protected int[,] mapData;
+        public float updateTime = 0.5f;
+
         public static FowManager instance
         {
             get
@@ -29,15 +38,6 @@ namespace FogOfWar
             }
 
         }
-
-        public float FogSizeX=10;
-        public float FogSizeY=10;
-        public float MapTileSize = 1;
-        public FOWMap map;
-        public List<FowViewer> viewerList;
-        public List<int[]> viewerPos;
-        protected int[,] mapData;
-        public float updateTime = 0.5f;
      
         // Use this for initialization
         void Awake()
