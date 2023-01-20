@@ -62,7 +62,7 @@ public class UISam : MonoBehaviour
     {
         //currentSam -= Time.deltaTime / 3000 * reducenum;
         currentSam -= Time.deltaTime * reducenum;
-        Debug.Log("current sam value:"+currentSam);
+        //Debug.Log("current sam value:"+currentSam);
         yield return null;
     }
 
@@ -70,7 +70,7 @@ public class UISam : MonoBehaviour
     void UpdateSam()
     {
         //SamSlider.fillAmount = (float)(MaxSam / currentSam);
-        Debug.Log(currentSam / MaxSam);
+        //Debug.Log(currentSam / MaxSam);
         samValue.value = (float)(currentSam / MaxSam);
     }
 
