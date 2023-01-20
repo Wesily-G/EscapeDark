@@ -16,42 +16,57 @@ public class UILight : MonoBehaviour
     double LightReducenum = 1f;
     [SerializeField]
     int addlight = 15;
-    Image LightSlider;
-    private void Awake()
-    {
-        LightSlider = transform.GetChild(0).GetComponent<Image>();
+    public Slider samValue;
+    private bool isWork = false;
+    private void Awake() {
+        //SamSlider = transform.GetChild(0).GetComponent<Image>();
         currentLight = MaxLight;
     }
-    private void Start()
-    {
-        onLight += () => LightStartReduce();
-        offLight += () => LightStopReduce();
+    private void Start() {
+        onLight += () => SamStartReduce();
+        offLight += () => SamStopReduce();
         addLight += () => AddLight();
+        onLight();
     }
 
-    void LightStartReduce()
-    {
-        StartCoroutine(SamReduce(LightReducenum));
+    //循环执行状态进行
+    private void Update() {
+        if (isWork) {
+            StartCoroutine(LightReduce(LightReducenum));
+            UpdateLight();
+        } else
+            UpdateLight();
+
+    }
+
+    void SamStartReduce() {
+        StartCoroutine(LightReduce(LightReducenum));
+        isWork = true;
         UpdateLight();
     }
 
-    void LightStopReduce()
-    {
-        StopCoroutine(SamReduce(LightReducenum));
+    void SamStopReduce() {
+        StopCoroutine(LightReduce(LightReducenum));
+        isWork = false;
+        UpdateLight();
     }
-    IEnumerator SamReduce(double reducenum)
-    {
-        currentLight -= Time.deltaTime / 3000 * reducenum;
+
+    //更新值的接口
+    IEnumerator LightReduce(double reducenum) {
+        //currentSam -= Time.deltaTime / 3000 * reducenum;
+        currentLight -= Time.deltaTime * reducenum;
+        Debug.Log("current light value:" + currentLight);
         yield return null;
     }
 
-    void UpdateLight()
-    {
-        LightSlider.fillAmount = (float)(MaxLight / currentLight);
+    //刷新状态
+    void UpdateLight() {
+        //SamSlider.fillAmount = (float)(MaxSam / currentSam);
+        Debug.Log(currentLight / MaxLight);
+        samValue.value = (float)(currentLight / MaxLight);
     }
 
-    void AddLight()
-    {
+    void AddLight() {
         currentLight += addlight;
         UpdateLight();
     }
