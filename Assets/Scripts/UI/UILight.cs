@@ -55,14 +55,14 @@ public class UILight : MonoBehaviour
     IEnumerator LightReduce(double reducenum) {
         //currentSam -= Time.deltaTime / 3000 * reducenum;
         currentLight -= Time.deltaTime * reducenum;
-        Debug.Log("current light value:" + currentLight);
+        //Debug.Log("current light value:" + currentLight);
         yield return null;
     }
 
     //Ë¢ÐÂ×´Ì¬
     void UpdateLight() {
         //SamSlider.fillAmount = (float)(MaxSam / currentSam);
-        Debug.Log(currentLight / MaxLight);
+        //Debug.Log(currentLight / MaxLight);
         samValue.value = (float)(currentLight / MaxLight);
     }
 
