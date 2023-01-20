@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerCpntroller : MonoBehaviour
 {
-
+    [HideInInspector]
     public Transform InteractiveItem; //交互的对象
+    [HideInInspector]
     public Transform Reserve; //暂时存储交互对象
     private void Update()
     {
