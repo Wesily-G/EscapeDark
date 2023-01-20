@@ -9,12 +9,11 @@ public class UISam : MonoBehaviour
     public UnityAction offSam = delegate { };
 
     [SerializeField]
-    double MaxSam = 50f;
+    double MaxSam = 100f;
     [SerializeField]
     double currentSam;
     [SerializeField]
-    double SamReducenum = 0.5f;
-
+    double SamReducenum = 1f;
     Image SamSlider;
     private void Awake()
     {
