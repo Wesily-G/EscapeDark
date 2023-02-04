@@ -8,6 +8,8 @@ public class PlayerCpntroller : MonoBehaviour
     public Transform InteractiveItem; //交互的对象
     [HideInInspector]
     public Transform Reserve; //暂时存储交互对象
+
+    public int keyNum = 0;//钥匙数量
     private void Update()
     {
         Transform Item = OnGetTrigger();
@@ -49,5 +51,20 @@ public class PlayerCpntroller : MonoBehaviour
             radius += 2;
         }
         return null;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Key")
+        {
+            Destroy(other.gameObject);
+            keyNum += 1;
+            Debug.Log(keyNum);
+        }
+    }
+
+    public int GetKeyNum()
+    {
+        return keyNum;
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - Key
   layers:
   - Default
   - TransparentFX
